@@ -395,7 +395,7 @@ var app = (function () {
     			img = element("img");
     			t0 = space();
     			b = element("b");
-    			b.textContent = "Covid Dashboard DE";
+    			b.textContent = "Covid Dashboard";
     			attr_dev(img, "class", "icon svelte-kucbqa");
     			attr_dev(img, "alt", "[Icon]");
     			if (!src_url_equal(img.src, img_src_value = "public/favicon.png")) attr_dev(img, "src", img_src_value);
@@ -931,7 +931,12 @@ var app = (function () {
     	let t1;
     	let t2;
     	let current;
-    	header = new Header({ $$inline: true });
+
+    	header = new Header({
+    			props: { page: /*page*/ ctx[0] },
+    			$$inline: true
+    		});
+
     	let if_block0 = /*page*/ ctx[0] == "home" && create_if_block_1(ctx);
     	let if_block1 = /*page*/ ctx[0] == "germany" && create_if_block(ctx);
 
@@ -969,6 +974,10 @@ var app = (function () {
     			if (!current || dirty & /*theme*/ 2 && link_href_value !== (link_href_value = "public/assets/themes/" + /*theme*/ ctx[1] + ".css")) {
     				attr_dev(link, "href", link_href_value);
     			}
+
+    			const header_changes = {};
+    			if (dirty & /*page*/ 1) header_changes.page = /*page*/ ctx[0];
+    			header.$set(header_changes);
 
     			if (/*page*/ ctx[0] == "home") {
     				if (if_block0) {
