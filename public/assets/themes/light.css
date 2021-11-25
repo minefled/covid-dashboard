@@ -1,0 +1,19 @@
+:root {
+    --main-background: #ffffff;
+
+    --primary-text-color: #000000;
+
+    --header-background-color: #272a30;
+    --header-font-color: #ffffff;
+
+    --homepage-landing-banner-background-color: rgb(57,100,129);
+    --homepage-landing-banner-background: linear-gradient(54deg, rgba(57,100,129,1) 0%, rgba(110,142,163,1) 100%);
+    --homepage-landing-banner-info-message-color: #ffffff;
+
+    --homepage-features-feature-card-shadow: 0 10px 6px -6px #bbb;
+    --homepage-features-feature-card-name-color: #ffffff;
+    --homepage-features-feature-card-incidence-background: #6daec9;
+    --homepage-features-feature-card-vaccinations-background:#6daec9;
+    --homepage-features-feature-card-tests-background: #6daec9;
+    --homepage-features-feature-card-hospitalization-background: #6daec9;
+}
