@@ -1,0 +1,16 @@
+div.germany-page {
+    position: fixed;
+    top: 60px;
+    left: 0;
+
+    width: 100%;
+    height: calc(100vh - 60px);
+
+    background-color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: auto;
+}
