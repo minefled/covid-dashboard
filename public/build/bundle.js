@@ -398,10 +398,10 @@ var app = (function () {
     			b.textContent = "Covid Dashboard DE";
     			attr_dev(img, "class", "icon svelte-kucbqa");
     			attr_dev(img, "alt", "[Icon]");
-    			if (!src_url_equal(img.src, img_src_value = "/favicon.png")) attr_dev(img, "src", img_src_value);
+    			if (!src_url_equal(img.src, img_src_value = "public/favicon.png")) attr_dev(img, "src", img_src_value);
     			add_location(img, file$3, 6, 8, 104);
     			attr_dev(b, "class", "title svelte-kucbqa");
-    			add_location(b, file$3, 7, 8, 163);
+    			add_location(b, file$3, 7, 8, 169);
     			attr_dev(div0, "class", "icon-block svelte-kucbqa");
     			add_location(div0, file$3, 5, 4, 71);
     			attr_dev(div1, "class", "header svelte-kucbqa");
@@ -946,7 +946,7 @@ var app = (function () {
     			t2 = space();
     			if (if_block1) if_block1.c();
     			attr_dev(link, "rel", "stylesheet");
-    			attr_dev(link, "href", link_href_value = "/assets/themes/" + /*theme*/ ctx[1] + ".css");
+    			attr_dev(link, "href", link_href_value = "public/assets/themes/" + /*theme*/ ctx[1] + ".css");
     			add_location(link, file, 17, 1, 466);
     			attr_dev(main, "class", "svelte-ifx5fi");
     			add_location(main, file, 15, 0, 437);
@@ -966,7 +966,7 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			if (!current || dirty & /*theme*/ 2 && link_href_value !== (link_href_value = "/assets/themes/" + /*theme*/ ctx[1] + ".css")) {
+    			if (!current || dirty & /*theme*/ 2 && link_href_value !== (link_href_value = "public/assets/themes/" + /*theme*/ ctx[1] + ".css")) {
     				attr_dev(link, "href", link_href_value);
     			}
 
