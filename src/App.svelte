@@ -18,7 +18,7 @@
 
 <main>
 	<!-- Load theme -->
-	<link rel="stylesheet" href="/assets/themes/{theme}.css">
+	<link rel="stylesheet" href="assets/themes/{theme}.css">
 
 	<Header />
 

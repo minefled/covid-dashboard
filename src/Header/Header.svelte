@@ -4,7 +4,7 @@
 
 <div class="header">
     <div class="icon-block">
-        <img class="icon" alt="[Icon]" src="/favicon.png">
+        <img class="icon" alt="[Icon]" src="public/favicon.png">
         <b class="title">Covid Dashboard DE</b>
     </div>
 </div>
