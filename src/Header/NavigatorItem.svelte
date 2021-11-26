@@ -1,15 +1,11 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
-
-    const dispatch = createEventDispatcher();
-
     export let id:string;
     export let name:string;
 
     export let selected_page:string;
 </script>
 
-<div class="navigator-item {id == selected_page ? "active" : ""}" id="header-nav-itm-{id}" on:click={() => { dispatch("set-page", {"page": id}); }}>
+<div class="navigator-item {id == selected_page ? "active" : ""}" id="header-nav-itm-{id}" on:click={() => { window.location.href = `#${id}`; }}>
     <b class="item-name">{name}</b>
     <span class="item-name-underline"></span>
 </div>
