@@ -6,8 +6,6 @@ div.home-page {
     width: 100%;
     height: calc(100vh - 60px);
 
-    background-color: #ffffff;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,6 +44,20 @@ div.landing-banner {
         padding-bottom: 2em;
 
         transition: 0.3s;
+
+        animation: 1s info-message-popup;
+    }
+}
+
+@keyframes info-message-popup {
+    0% {
+        opacity: 0%;
+        transform: translateY(20%);
+    }
+
+    100% {
+        opacity: 100%;
+        transform: translateY(0%);
     }
 }
 

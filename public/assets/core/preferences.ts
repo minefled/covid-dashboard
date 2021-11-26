@@ -1,6 +1,6 @@
 export type _theme = "dark" | "light";
 
-export const default_theme:_theme = "light";
+export const default_theme:_theme = "dark";
 
 export interface Preferences {
     theme: _theme;
