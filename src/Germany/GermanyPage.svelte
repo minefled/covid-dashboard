@@ -14,10 +14,6 @@
     onMount(async () => {
         data = await core.api.fetchGermany();
         vaccinations = await core.api.fetchGermanyVaccinations();
-
-        document.getElementById("germany-7-day-incidence").style.color = calculateIncidenceColor(data.weekIncidence);
-        document.getElementById("germany-cases-7-days").style.color = calculateWeekCasesColor(data.cases7Days);
-        document.getElementById("germany-hospitalization-incidence").style.color = calculateHospitalizationColor(data.hospitalizationIncidence);
     });
 </script>
 
@@ -92,6 +88,7 @@
                 <SimpleField name="Erstimpfung" icon_src="public/assets/icons/light/vaccination.png" value={vaccinations.vaccinated}/>
                 <SimpleField name="Zweitimpfung" icon_src="public/assets/icons/light/vaccination.png" value={vaccinations.secondVaccinations}/>
                 <SimpleField name="Boosterimpfung" icon_src="public/assets/icons/light/booster.png" value={vaccinations.boosterVaccinations}/>
+                <SimpleField name="Impfquote" icon_src="public/assets/icons/light/quote.png" value={vaccinations.quote*100} unit="%"/>
             </div>
         </div>
 

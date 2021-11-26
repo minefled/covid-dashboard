@@ -6,6 +6,7 @@
     export let icon_src = "";
     export let name = "";
     export let color:string = "";
+    export let unit:string = "";
 </script>
 
 <div class="item-box">
@@ -16,7 +17,7 @@
                 <b>{name}</b>
             </div>
             <div class="value-section">
-                <b style={(color == "") ? "" : `color: ${color}`}>{formatNumber(value)}</b>
+                <b style={(color == "") ? "" : `color: ${color}`}>{formatNumber(value)}{unit}</b>
                 {#if delta != null}
                     <b class="delta">+{formatNumber(delta)}</b>
                 {/if}
@@ -102,8 +103,8 @@
 
                     b {
                         font-size: 32px;
-                        font-family: "Roboto";
-                        font-weight: 900;
+                        font-family: "Outfit";
+                        font-weight: 800;
                         color: #ffffff;
 
                         margin-left: 0.5em;
@@ -113,8 +114,8 @@
 
                     b.delta {
                         font-size: 16px;
-                        font-family: "Roboto";
-                        font-weight: 900;
+                        font-family: "Outfit";
+                        font-weight: 800;
                         color: #777;
 
                         margin-left: 1.5em;
