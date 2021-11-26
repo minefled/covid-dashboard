@@ -1,0 +1,63 @@
+<script lang="ts">
+    import { createEventDispatcher } from "svelte";
+
+    const dispatch = createEventDispatcher();
+
+    export let id:string;
+    export let name:string;
+
+    export let selected_page:string;
+</script>
+
+<div class="navigator-item {id == selected_page ? "active" : ""}" id="header-nav-itm-{id}" on:click={() => { dispatch("set-page", {"page": id}); }}>
+    <b class="item-name">{name}</b>
+    <span class="item-name-underline"></span>
+</div>
+
+<style lang="scss">
+    .navigator-item {
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        padding-left: 1.5ex;
+        padding-right: 1.5ex;
+
+        cursor: pointer;
+
+        b {
+            font-family: "Montserrat";
+            font-size: 16;
+            font-weight: 500;
+
+            color: var(--header-navigator-item-name-color)
+        }
+
+        .item-name-underline {
+            margin-top: 0px;
+
+            width: 0%;
+            height: 0px;
+
+            background: var(--header-navigator-item-active-background-color);
+            background: var(--header-navigator-item-active-background);
+
+            transition: 0.2s;
+        }
+    }
+
+    .navigator-item.active {
+        .item-name-underline {
+            margin-top: 2px;
+
+            width: 100%;
+            height: 2px;
+
+            background: var(--header-navigator-item-active-background-color);
+            background: var(--header-navigator-item-active-background);
+        }
+    }
+</style>

@@ -13,14 +13,14 @@
 		window.addEventListener("hashchange", () => {
 			page = get_page();
 		})
-	})
+	});
 </script>
 
 <main>
 	<!-- Load theme -->
 	<link rel="stylesheet" href="public/assets/themes/{theme}.css">
 
-	<Header />
+	<Header page={page} on:set-page={(e) => { console.log(e.detail); page = e?.detail?.page || "home"; }}/>
 
 	{#if page == "home"}
 		<Homepage />
