@@ -60,6 +60,7 @@ export interface VaccinationData {
     stateName?:string;
 
     vaccinated:number;
+    secondVaccinations:number;
     administered:number;
     quote:number;
 

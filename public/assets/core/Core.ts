@@ -1,5 +1,5 @@
 import { API } from "./api/api";
-import type { GermanyData } from "./api/data";
+import type { GermanyData, VaccinationData } from "./api/data";
 import { Preferences, read_preferences } from "./preferences";
 
 export class Core {
@@ -8,6 +8,7 @@ export class Core {
     app:any;
 
     germanyData:GermanyData;
+    germanyVaccinationData:VaccinationData;
 
     userPreferences:Preferences;
 
@@ -23,8 +24,9 @@ export class Core {
 
     async fetchData() {
         this.germanyData = await this.api.fetchGermany();
+        this.germanyVaccinationData = await this.api.fetchGermanyVaccinations();
 
-        console.log(this.germanyData);
+        console.log(this.germanyData, this.germanyVaccinationData);
     }
 
 }

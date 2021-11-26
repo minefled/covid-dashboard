@@ -4,13 +4,15 @@
     import { calculateHospitalizationColor, calculateIncidenceColor, calculateWeekCasesColor } from "./index.js";
 
     import { Core, formatNumber } from "../../public/assets/core";
-    import type { GermanyData } from "../../public/assets/core/api/data";
+    import type { GermanyData, VaccinationData } from "../../public/assets/core/api/data";
 
     export let core:Core;
     export let data:GermanyData = {weekIncidence: 0, cases7Days: 0, hospitalizationIncidence: 0, hospitalizationCases: 0, cases: 0, deaths: 0, recovered: 0, deltaCases: 0, deltaDeaths: 0, deltaRecovered: 0};
+    export let vaccinations:VaccinationData = { vaccinated: 0, secondVaccinations: 0, boosterVaccinations: 0, administered: 0, quote: 0, dosesBiontech: 0, dosesModerna: 0, dosesAstraZeneca: 0, dosesJanssen: 0, boosterDosesBiontech: 0, boosterDosesModerna: 0, boosterDosesAstraZeneca: 0, boosterDosesJanssen: 0};
 
     onMount(async () => {
         data = await core.api.fetchGermany();
+        vaccinations = await core.api.fetchGermanyVaccinations();
 
         document.getElementById("germany-7-day-incidence").style.color = calculateIncidenceColor(data.weekIncidence);
         document.getElementById("germany-cases-7-days").style.color = calculateWeekCasesColor(data.cases7Days);
@@ -152,15 +154,59 @@
         </div>
 
         <div class="category">
-            <b class="category-name">Tests</b>
+            <b class="category-name">Impfungen</b>
             <span class="title-underline"></span>
 
-            <div class="item-container size-3">
+            <div class="item-container size-5">
+                <!-- Erstimpfung -->
+                <div class="item-box">
+                    <div class="item">
+                        <div class="icon-section"><img src="public/assets/icons/light/vaccination.png" class="item-icon"></div>
+                        <div class="content-section">
+                            <div class="title-section">
+                                <b>Erstimpfung</b>
+                            </div>
+                            <div class="value-section">
+                                <b>{formatNumber(vaccinations.vaccinated)}</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zweitimpfung -->
+                <div class="item-box">
+                    <div class="item">
+                        <div class="icon-section"><img src="public/assets/icons/light/vaccination.png" class="item-icon"></div>
+                        <div class="content-section">
+                            <div class="title-section">
+                                <b>Zweitimpfung</b>
+                            </div>
+                            <div class="value-section">
+                                <b>{formatNumber(vaccinations.secondVaccinations)}</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Boosterimpfung -->
+                <div class="item-box">
+                    <div class="item">
+                        <div class="icon-section"><img src="public/assets/icons/light/booster.png" class="item-icon"></div>
+                        <div class="content-section">
+                            <div class="title-section">
+                                <b>Boosterimpfung</b>
+                            </div>
+                            <div class="value-section">
+                                <b>{formatNumber(vaccinations.boosterVaccinations)}</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="category">
-            <b class="category-name">Impfungen</b>
+            <b class="category-name">Tests</b>
             <span class="title-underline"></span>
 
             <div class="item-container size-3">
