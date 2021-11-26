@@ -6,7 +6,6 @@
 	import { onMount } from "svelte";
 
 	export let page = "home";
-	export let theme = "light";
 	export let core:Core;
 
 	onMount(() => {
@@ -14,13 +13,17 @@
 			page = get_page();
 		})
 	});
+
+	export function update() {
+		core.userPreferences.theme = core.userPreferences.theme;
+	}
 </script>
 
 <main>
 	<!-- Load theme -->
-	<link rel="stylesheet" href="public/assets/themes/{theme}.css">
+	<link rel="stylesheet" href="public/assets/themes/{core.userPreferences.theme}.css" id="theme-loader">
 
-	<Header page={page}/>
+	<Header page={page} core={core}/>
 
 	{#if page == "home"}
 		<Homepage />

@@ -1,7 +1,10 @@
 <script lang="ts">
+    import type { Core } from "../../public/assets/core";
     import NavigatorItem from "./NavigatorItem.svelte";
+    import ThemeSelector from "./ThemeSelector.svelte";
 
     export let page:string = "";
+    export let core:Core;
 </script>
 
 <div class="header">
@@ -17,6 +20,8 @@
         <NavigatorItem id="states" name="Bundesländer" selected_page={page}/>
         <NavigatorItem id="districts" name="Landkreise" selected_page={page}/>
     </div>
+
+    <ThemeSelector core={core}/>
 </div>
 
 <style lang="scss">
