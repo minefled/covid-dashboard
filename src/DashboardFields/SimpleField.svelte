@@ -14,10 +14,10 @@
         <div class="icon-section"><img src={icon_src} class="item-icon" alt=""></div>
         <div class="content-section">
             <div class="title-section">
-                <b>{name}</b>
+                <b class="item-title">{name}</b>
             </div>
             <div class="value-section">
-                <b style={(color == "") ? "" : `color: ${color}`}>{formatNumber(value)}{unit}</b>
+                <b class="item-value" style={(color == "") ? "" : `color: ${color}`}>{formatNumber(value)}{unit}</b>
                 {#if delta != null}
                     <b class="delta">+{formatNumber(delta)}</b>
                 {/if}
@@ -83,7 +83,7 @@
                     align-items: center;
                     justify-content: flex-start;
 
-                    b {
+                    b.item-title {
                         font-family: "Montserrat";
                         font-size: 20px;
                         font-weight: 700;
@@ -101,7 +101,7 @@
                     align-items: center;
                     justify-content: flex-start;
 
-                    b {
+                    b.item-value {
                         font-size: 32px;
                         font-family: "Outfit";
                         font-weight: 800;
@@ -122,6 +122,38 @@
                     }
                 }
             }
+        }
+    }
+
+    @media(max-width: 1100px) {
+        img.item-icon {
+            height: 40px;
+        }
+
+        div.title-section b {
+            font-size: 18px;
+        }
+    }
+
+    @media(max-width: 800px) {
+        img.item-icon {
+            height: 30px;
+        }
+
+        div.item {
+            width: calc(100%);
+        }
+
+        b.item-title {
+            font-size: 10px;
+        }
+
+        b.item-value {
+            font-size: 16px;
+        }
+
+        b.delta {
+            font-size: 12px;
         }
     }
 </style>
