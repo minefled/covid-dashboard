@@ -1,0 +1,14 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+    <style>
+        .text {
+            font: bold 24px arial;
+            fill: black;
+        }
+
+    </style>
+
+    <circle class="hole" cx="21" cy="21" r="15.91549430918954" fill="transparent"></circle>
+    <circle class="ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#000000" stroke-width="2"></circle>
+
+    <text x="50%" y="50%" class="text" text-anchor="middle" dominant-baseline="middle" dy="3">7</text>
+</svg>

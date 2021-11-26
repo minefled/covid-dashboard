@@ -8,6 +8,7 @@ export interface GermanyData {
     deaths:number;
     recovered:number;
 
+    cases7Days:number;
     weekIncidence:number;
 
     deltaCases:number;

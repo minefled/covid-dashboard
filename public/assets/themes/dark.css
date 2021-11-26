@@ -1,7 +1,7 @@
 :root {
     --main-background: #272a30;
 
-    --primary-text-color: #000000;
+    --primary-text-color: #ffffff;
 
     --header-background-color: #272a30;
     --header-font-color: #ffffff;
@@ -21,4 +21,8 @@
     --homepage-navigator-item-border-color: #e0e0e000;
     --homepage-navigator-item-shadow-color: #cccccc00;
     --homepage-navigator-item-font-color: #e4e4e4;
+
+    --dashboard-category-name-color: rgba(204,65,92,1);
+    --dashboard-category-title-underline-color: #313038;
+    --dashboard-item-default-background-color: #24242a;
 }

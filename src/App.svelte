@@ -29,7 +29,7 @@
 		<Homepage />
 	{/if}
 	{#if page == "germany"}
-		<GermanyPage />
+		<GermanyPage core={core}/>
 	{/if}
 </main>
 

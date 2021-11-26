@@ -41,6 +41,7 @@ export class API {
             deaths: (data.deaths || 0),
             recovered: (data.recovered || 0),
 
+            cases7Days: (data.casesPerWeek || 0),
             weekIncidence: (data.weekIncidence || 0),
 
             deltaCases: (data.delta?.cases || 0),
