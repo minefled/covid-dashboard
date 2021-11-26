@@ -6,6 +6,10 @@
     --header-background-color: #272a30;
     --header-font-color: #ffffff;
 
+    --header-navigator-item-name-color: #ffffff;
+    --header-navigator-item-active-background-color: rgb(181,60,60);
+    --header-navigator-item-active-background: linear-gradient(90deg, rgba(181,60,60,1) 0%, rgba(204,65,92,1) 100%);
+
     --homepage-landing-banner-background-color: rgb(57,100,129);
     --homepage-landing-banner-background: linear-gradient(54deg, rgba(57,100,129,1) 0%, rgba(110,142,163,1) 100%);
     --homepage-landing-banner-info-message-color: #ffffff;
