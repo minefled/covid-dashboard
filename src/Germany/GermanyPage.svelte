@@ -1,9 +1,10 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import SimpleField from "../DashboardFields/SimpleField.svelte";
 
     import { calculateHospitalizationColor, calculateIncidenceColor, calculateWeekCasesColor } from "./index.js";
 
-    import { Core, formatNumber } from "../../public/assets/core";
+    import type { Core } from "../../public/assets/core";
     import type { GermanyData, VaccinationData } from "../../public/assets/core/api/data";
 
     export let core:Core;
@@ -56,100 +57,30 @@
             <span class="title-underline"></span>
 
             <div class="item-container size-6">
-                <!-- Inzidenz -->
-                <div class="item-box">
-                    <div class="item">
-                        <div class="icon-section"><img src="public/assets/icons/light/7-day-incidence.svg" class="item-icon"></div>
-                        <div class="content-section">
-                            <div class="title-section">
-                                <b>7-Tage-Inzidenz</b>
-                            </div>
-                            <div class="value-section">
-                                <b id="germany-7-day-incidence">{formatNumber(data.weekIncidence)}</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <SimpleField 
+                    name="7-Tage-Inzidenz"
+                    icon_src="public/assets/icons/light/7-day-incidence.svg"
+                    value={data.weekIncidence} 
+                    color={calculateIncidenceColor(data.weekIncidence)}
+                />
 
-                <!-- Fälle 7 Tage -->
-                <div class="item-box">
-                    <div class="item">
-                        <div class="icon-section"><img src="public/assets/icons/light/covid.png" class="item-icon"></div>
-                        <div class="content-section">
-                            <div class="title-section">
-                                <b>Fälle 7 Tage</b>
-                            </div>
-                            <div class="value-section">
-                                <b id="germany-cases-7-days">{formatNumber(data.cases7Days)}</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <SimpleField 
+                    name="Fälle 7 Tage"
+                    icon_src="public/assets/icons/light/covid.png"
+                    value={data.cases7Days} 
+                    color={calculateWeekCasesColor(data.cases7Days)}
+                />
 
-                <!-- Hospitalisierung -->
-                <div class="item-box">
-                    <div class="item">
-                        <div class="icon-section"><img src="public/assets/icons/light/hospitalization.png" class="item-icon"></div>
-                        <div class="content-section">
-                            <div class="title-section">
-                                <b>Hospitalisierungs-Inzidenz</b>
-                            </div>
-                            <div class="value-section">
-                                <b id="germany-hospitalization-incidence">{formatNumber(data.hospitalizationIncidence)}</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <SimpleField 
+                    name="Hospitalisierungs-Inzidenz"
+                    icon_src="public/assets/icons/light/hospitalization.png"
+                    value={data.hospitalizationIncidence} 
+                    color={calculateHospitalizationColor(data.hospitalizationIncidence)}
+                />
 
-                <!-- Fälle gesamt -->
-                <div class="item-box">
-                    <div class="item">
-                        <div class="icon-section"><img src="public/assets/icons/light/covid.png" class="item-icon"></div>
-                        <div class="content-section">
-                            <div class="title-section">
-                                <b>Fälle Gesamt</b>
-                            </div>
-                            <div class="value-section">
-                                <b>{formatNumber(data.cases)}</b>
-                                <b class="delta">+{formatNumber(data.deltaCases)}</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tode Gesamt -->
-                <div class="item-box">
-                    <div class="item">
-                        <div class="icon-section"><img src="public/assets/icons/light/death.png" class="item-icon"></div>
-                        <div class="content-section">
-                            <div class="title-section">
-                                <b>Tode Gesamt</b>
-                            </div>
-                            <div class="value-section">
-                                <b>{formatNumber(data.deaths)}</b>
-                                <b class="delta">+{formatNumber(data.deltaDeaths)}</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Genesene Gesamt -->
-                <div class="item-box">
-                    <div class="item">
-                        <div class="item">
-                            <div class="icon-section"><img src="public/assets/icons/light/recovered.png" class="item-icon"></div>
-                            <div class="content-section">
-                                <div class="title-section">
-                                    <b>Genesene Gesamt</b>
-                                </div>
-                                <div class="value-section">
-                                    <b>{formatNumber(data.recovered)}</b>
-                                    <b class="delta">+{formatNumber(data.deltaRecovered)}</b>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <SimpleField name="Fälle Gesamt" icon_src="public/assets/icons/light/covid.png" value={data.cases} delta={data.deltaCases}/>
+                <SimpleField name="Tode Gesamt" icon_src="public/assets/icons/light/death.png" value={data.deaths} delta={data.deltaDeaths}/>
+                <SimpleField name="Genesene Gesamt" icon_src="public/assets/icons/light/recovered.png" value={data.recovered} delta={data.deltaRecovered}/>
             </div>
         </div>
 
@@ -158,50 +89,9 @@
             <span class="title-underline"></span>
 
             <div class="item-container size-5">
-                <!-- Erstimpfung -->
-                <div class="item-box">
-                    <div class="item">
-                        <div class="icon-section"><img src="public/assets/icons/light/vaccination.png" class="item-icon"></div>
-                        <div class="content-section">
-                            <div class="title-section">
-                                <b>Erstimpfung</b>
-                            </div>
-                            <div class="value-section">
-                                <b>{formatNumber(vaccinations.vaccinated)}</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Zweitimpfung -->
-                <div class="item-box">
-                    <div class="item">
-                        <div class="icon-section"><img src="public/assets/icons/light/vaccination.png" class="item-icon"></div>
-                        <div class="content-section">
-                            <div class="title-section">
-                                <b>Zweitimpfung</b>
-                            </div>
-                            <div class="value-section">
-                                <b>{formatNumber(vaccinations.secondVaccinations)}</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boosterimpfung -->
-                <div class="item-box">
-                    <div class="item">
-                        <div class="icon-section"><img src="public/assets/icons/light/booster.png" class="item-icon"></div>
-                        <div class="content-section">
-                            <div class="title-section">
-                                <b>Boosterimpfung</b>
-                            </div>
-                            <div class="value-section">
-                                <b>{formatNumber(vaccinations.boosterVaccinations)}</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <SimpleField name="Erstimpfung" icon_src="public/assets/icons/light/vaccination.png" value={vaccinations.vaccinated}/>
+                <SimpleField name="Zweitimpfung" icon_src="public/assets/icons/light/vaccination.png" value={vaccinations.secondVaccinations}/>
+                <SimpleField name="Boosterimpfung" icon_src="public/assets/icons/light/booster.png" value={vaccinations.boosterVaccinations}/>
             </div>
         </div>
 
