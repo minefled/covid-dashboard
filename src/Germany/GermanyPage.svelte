@@ -3,7 +3,7 @@
 
     import { calculateHospitalizationColor, calculateIncidenceColor, calculateWeekCasesColor } from "./index.js";
 
-    import type { Core } from "../../public/assets/core";
+    import { Core, formatNumber } from "../../public/assets/core";
     import type { GermanyData } from "../../public/assets/core/api/data";
 
     export let core:Core;
@@ -63,7 +63,7 @@
                                 <b>7-Tage-Inzidenz</b>
                             </div>
                             <div class="value-section">
-                                <b id="germany-7-day-incidence">{data.weekIncidence.toFixed(2)}</b>
+                                <b id="germany-7-day-incidence">{formatNumber(data.weekIncidence)}</b>
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                                 <b>Fälle 7 Tage</b>
                             </div>
                             <div class="value-section">
-                                <b id="germany-cases-7-days">{data.cases7Days}</b>
+                                <b id="germany-cases-7-days">{formatNumber(data.cases7Days)}</b>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                                 <b>Hospitalisierungs-Inzidenz</b>
                             </div>
                             <div class="value-section">
-                                <b id="germany-hospitalization-incidence">{data.hospitalizationIncidence}</b>
+                                <b id="germany-hospitalization-incidence">{formatNumber(data.hospitalizationIncidence)}</b>
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,8 @@
                                 <b>Fälle Gesamt</b>
                             </div>
                             <div class="value-section">
-                                <b>{data.cases}</b>
+                                <b>{formatNumber(data.cases)}</b>
+                                <b class="delta">+{formatNumber(data.deltaCases)}</b>
                             </div>
                         </div>
                     </div>
@@ -123,7 +124,8 @@
                                 <b>Tode Gesamt</b>
                             </div>
                             <div class="value-section">
-                                <b>{data.deaths}</b>
+                                <b>{formatNumber(data.deaths)}</b>
+                                <b class="delta">+{formatNumber(data.deltaDeaths)}</b>
                             </div>
                         </div>
                     </div>
@@ -139,7 +141,8 @@
                                     <b>Genesene Gesamt</b>
                                 </div>
                                 <div class="value-section">
-                                    <b>{data.recovered}</b>
+                                    <b>{formatNumber(data.recovered)}</b>
+                                    <b class="delta">+{formatNumber(data.deltaRecovered)}</b>
                                 </div>
                             </div>
                         </div>
