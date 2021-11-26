@@ -8,7 +8,7 @@
 </script>
 
 <div class="header">
-    <div class="icon-block">
+    <div class="icon-block" on:click={ () => { window.location.href = ""; } }>
         <img class="icon" alt="[Icon]" src="public/favicon.png">
         <b class="title">Covid Dashboard</b>
     </div>
