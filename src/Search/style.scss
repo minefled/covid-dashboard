@@ -16,7 +16,7 @@ div.search {
 }
 
 div.search:focus {
-    border-bottom: 1px solid #ffffff;
+    background-color: var(--search-focus-background);
 }
 
 .text-section {
@@ -57,6 +57,14 @@ b.autocomplete {
     min-height: 1em;
 
     white-space:pre;
+
+    display: none;
+}
+
+div.search:focus {
+    b.autocomplete {
+        display: block;
+    }
 }
 
 .validation-section {

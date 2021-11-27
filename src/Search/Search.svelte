@@ -1,5 +1,6 @@
 <script lang="ts">
     import { handleKeypress, findAutocompleteMatch, isValid } from ".";
+    import { createEventDispatcher } from "svelte";
 
     export let possible_values:Array<string> = [];
     export let placeholder:string = "Search...";
@@ -10,11 +11,16 @@
 
     let autocomplete_value:string = "";
 
+    const dispatch = createEventDispatcher();
+
     function handle_keypress(e) {
         _value = handleKeypress(e, _value, autocomplete_value);
         autocomplete_value = findAutocompleteMatch(possible_values, _value).replace(_value, "");
 
-        if(isValid(_value, possible_values)) value = _value;
+        if(isValid(_value, possible_values)) {
+            value = _value;
+            dispatch("submit", { "value": value });
+        }
         else value = "";
 
         console.log(isValid(_value, possible_values));

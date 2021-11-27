@@ -26,6 +26,16 @@ export function handleKeypress(e, currentValue, autocompleteValue) {
         return currentValue + autocompleteValue;
     }
 
+    // Escape
+    if(e.which == 27) {
+        e.target.blur();
+    }
+
+    // Enter
+    if(e.which == 13) {
+        e.target.blur();
+    }
+
     return currentValue;
 }
 
@@ -41,8 +51,6 @@ export function findAutocompleteMatch(possible_values, enteredValue) {
 
 export function isValid(value, possible_values) {
     let lowercase_possibilities /* Sounds like a title of some movie lol */ = possible_values.map(x => x.toLowerCase());
-
-    console.log(lowercase_possibilities, value.toLowerCase());
 
     return lowercase_possibilities.includes(value.toLowerCase());
 }
