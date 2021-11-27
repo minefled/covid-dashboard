@@ -108,6 +108,8 @@
                     font-weight: 700;
 
                     color: var(--dashboard-item-name-color);
+
+                    animation: 0.7s title-appear;
                 }
 
                 img.item-icon {
@@ -126,6 +128,18 @@
                         font-size: 14px;
                     }
                 }
+
+                @keyframes title-appear {
+                        0% {
+                            opacity: 0%;
+                            transform: translateY(30%);
+                        }
+
+                        100% {
+                            opacity: 100%;
+                            transform: translateY(0%);
+                        }
+                    }
             }
 
             div.value-section {
@@ -210,12 +224,28 @@
 
                             overflow-x: hidden;
                             overflow-y: visible;
+
+                            opacity: 0%;
+
+                            animation: 0.75s segment-appear forwards;
                         }
 
-                        span.dose-segment.biontech { background-color: var(--dashboard-vaccination-distribution-chart-segment-biontech); }
-                        span.dose-segment.moderna { background-color: var(--dashboard-vaccination-distribution-chart-segment-moderna); }
-                        span.dose-segment.astrazeneca { background-color: var(--dashboard-vaccination-distribution-chart-segment-astrazeneca); }
-                        span.dose-segment.janssen { background-color: var(--dashboard-vaccination-distribution-chart-segment-janssen); }
+                        span.dose-segment.biontech { background-color: var(--dashboard-vaccination-distribution-chart-segment-biontech); animation-delay: 0s;}
+                        span.dose-segment.moderna { background-color: var(--dashboard-vaccination-distribution-chart-segment-moderna); animation-delay: 0.15s;}
+                        span.dose-segment.astrazeneca { background-color: var(--dashboard-vaccination-distribution-chart-segment-astrazeneca); animation-delay: 0.3s;}
+                        span.dose-segment.janssen { background-color: var(--dashboard-vaccination-distribution-chart-segment-janssen); animation-delay: 0.45s;}
+
+                        @keyframes segment-appear {
+                            0% {
+                                opacity: 0%;
+                                transform: scaleX(0%);
+                            }
+
+                            100% {
+                                opacity: 100%;
+                                transform: scaleX(100%);
+                            }
+                        }
                     }
                 }
             }

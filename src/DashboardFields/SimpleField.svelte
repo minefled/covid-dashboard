@@ -97,6 +97,8 @@
                         font-weight: 700;
 
                         color: var(--dashboard-item-name-color);
+
+                        animation: 0.7s title-appear;
                     }
 
                     @media(max-width: 900px) {
@@ -108,6 +110,18 @@
                     @media(max-width: 600px) {
                         b.item-title {
                             font-size: 14px;
+                        }
+                    }
+
+                    @keyframes title-appear {
+                        0% {
+                            opacity: 0%;
+                            transform: translateY(30%);
+                        }
+
+                        100% {
+                            opacity: 100%;
+                            transform: translateY(0%);
                         }
                     }
                 }
@@ -128,6 +142,12 @@
                         color: #ffffff;
 
                         transition: 0.3s;
+
+                        opacity: 0%;
+                        transform: translateY(0%);
+
+                        animation: 0.7s value-appear forwards;
+                        animation-delay: 0.15s;
                     }
 
                     b.delta {
@@ -137,6 +157,12 @@
                         color: #777;
 
                         margin-left: 1.5ex;
+
+                        opacity: 0%;
+                        transform: translateY(0%);
+
+                        animation: 0.7s value-appear forwards;
+                        animation-delay: 0.3s;
                     }
 
                     @media(max-width: 900px) {
@@ -146,6 +172,18 @@
 
                         b.delta {
                             font-size: 14px;
+                        }
+                    }
+
+                    @keyframes value-appear {
+                        0% {
+                            opacity: 0%;
+                            transform: translateY(30%);
+                        }
+
+                        100% {
+                            opacity: 100%;
+                            transform: translateY(0%);
                         }
                     }
                 }
