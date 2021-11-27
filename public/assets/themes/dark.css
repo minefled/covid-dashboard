@@ -25,4 +25,10 @@
     --dashboard-category-name-color: rgba(204,65,92,1);
     --dashboard-category-title-underline-color: #313038;
     --dashboard-item-default-background-color: #24242a;
+
+    --dashboard-vaccination-distribution-chart-background: #27292e;
+    --dashboard-vaccination-distribution-chart-segment-biontech: #c24b4b;
+    --dashboard-vaccination-distribution-chart-segment-moderna: #9845c8;
+    --dashboard-vaccination-distribution-chart-segment-astrazeneca: #4a7eb9;
+    --dashboard-vaccination-distribution-chart-segment-janssen: #5dbd51;
 }

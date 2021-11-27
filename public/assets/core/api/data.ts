@@ -66,6 +66,7 @@ export interface VaccinationData {
     secondVaccinationQuote:number;
 
     boosterVaccinations:number;
+    boosterVaccinationQuote:number;
 
     dosesBiontech:number;
     dosesModerna:number;
