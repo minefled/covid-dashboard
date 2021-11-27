@@ -1,4 +1,4 @@
-import type { GermanyData, VaccinationData } from "./data";
+import type { GermanyData, TestsData, VaccinationData } from "./data";
 
 export class API {
 
@@ -83,6 +83,28 @@ export class API {
             boosterDosesAstraZeneca: (data.data?.boosterVaccination?.vaccination?.astraZeneca || 0),
             boosterDosesJanssen: (data.data?.boosterVaccination?.vaccination?.janssen || 0)
         }
+    }
+
+    async fetchTestData():Promise<TestsData> {
+        let data;
+        if("germany-tests" in this.getCache()) {
+            data = this.getCache()["germany-tests"];
+        } else {
+            data = await (await fetch("https://api.corona-zahlen.org/testing/history/")).json();
+            this.setCacheItem("germany-tests", data);
+        }
+
+        let newest = ((data.data?.history || []).reverse()[0] || {});
+
+        return {
+            calendarWeek: (newest.calendarWeek || ""),
+
+            performedTest: (newest.performedTests || 0),
+            positiveTests: (newest.positiveTests || 0),
+
+            laboratoryCount: (newest.laboratoryCount || 0)
+        };
+
     }
 
 }

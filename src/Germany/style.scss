@@ -80,6 +80,11 @@ div.item-container.size-5 {
 }
 
 @media(max-width: 1600px) {
+    div.item-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
     div.item-container.size-6 {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;

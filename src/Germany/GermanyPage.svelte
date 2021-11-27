@@ -3,18 +3,20 @@
     import SimpleField from "../DashboardFields/SimpleField.svelte";
     import DosesDistribution from "../DashboardFields/DosesDistribution.svelte";
 
-    import { calculateHospitalizationColor, calculateIncidenceColor, calculateWeekCasesColor } from "./index.js";
+    import { calculateHospitalizationColor, calculateIncidenceColor, calculatePositivityRateColor, calculateWeekCasesColor } from "./index.js";
 
     import type { Core } from "../../public/assets/core";
-    import type { GermanyData, VaccinationData } from "../../public/assets/core/api/data";
+    import type { GermanyData, TestsData, VaccinationData } from "../../public/assets/core/api/data";
 
     export let core:Core;
     export let data:GermanyData = {weekIncidence: 0, cases7Days: 0, hospitalizationIncidence: 0, hospitalizationCases: 0, cases: 0, deaths: 0, recovered: 0, deltaCases: 0, deltaDeaths: 0, deltaRecovered: 0};
     export let vaccinations:VaccinationData = { vaccinated: 0, secondVaccinations: 0, boosterVaccinations: 0, administered: 0, quote: 0, secondVaccinationQuote: 0, boosterVaccinationQuote: 0, dosesBiontech: 0, dosesModerna: 0, dosesAstraZeneca: 0, dosesJanssen: 0, boosterDosesBiontech: 0, boosterDosesModerna: 0, boosterDosesAstraZeneca: 0, boosterDosesJanssen: 0};
+    export let tests:TestsData = { calendarWeek: "", performedTest: 0, positiveTests: 0, laboratoryCount: 0 };
 
     onMount(async () => {
         data = await core.api.fetchGermany();
         vaccinations = await core.api.fetchGermanyVaccinations();
+        tests = await core.api.fetchTestData();
 
         console.log(vaccinations);
     });
@@ -103,11 +105,14 @@
             </div>
         </div>
 
-        <div class="category">
+        <div class="category tests-category" style="padding-bottom: 60px">
             <b class="category-name">Tests</b>
             <span class="title-underline"></span>
 
             <div class="item-container size-3">
+                <SimpleField name="Durchgeführte Tests" icon_src="public/assets/icons/light/tests.png" value={tests.performedTest}/>
+                <SimpleField name="Positive Tests" icon_src="public/assets/icons/light/tests.png" value={tests.positiveTests}/>
+                <SimpleField name="Postitivitätsrate" icon_src="public/assets/icons/light/quote.png" value={(tests.positiveTests / tests.performedTest)*100} unit="%" color={calculatePositivityRateColor((tests.positiveTests / tests.performedTest)*100)}/>
             </div>
         </div>
     </div>
