@@ -9,7 +9,7 @@
 
     export let core:Core;
     export let data:GermanyData = {weekIncidence: 0, cases7Days: 0, hospitalizationIncidence: 0, hospitalizationCases: 0, cases: 0, deaths: 0, recovered: 0, deltaCases: 0, deltaDeaths: 0, deltaRecovered: 0};
-    export let vaccinations:VaccinationData = { vaccinated: 0, secondVaccinations: 0, boosterVaccinations: 0, administered: 0, quote: 0, dosesBiontech: 0, dosesModerna: 0, dosesAstraZeneca: 0, dosesJanssen: 0, boosterDosesBiontech: 0, boosterDosesModerna: 0, boosterDosesAstraZeneca: 0, boosterDosesJanssen: 0};
+    export let vaccinations:VaccinationData = { vaccinated: 0, secondVaccinations: 0, boosterVaccinations: 0, administered: 0, quote: 0, secondVaccinationQuote: 0, dosesBiontech: 0, dosesModerna: 0, dosesAstraZeneca: 0, dosesJanssen: 0, boosterDosesBiontech: 0, boosterDosesModerna: 0, boosterDosesAstraZeneca: 0, boosterDosesJanssen: 0};
 
     onMount(async () => {
         data = await core.api.fetchGermany();
@@ -88,7 +88,8 @@
                 <SimpleField name="Erstimpfung" icon_src="public/assets/icons/light/vaccination.png" value={vaccinations.vaccinated}/>
                 <SimpleField name="Zweitimpfung" icon_src="public/assets/icons/light/vaccination.png" value={vaccinations.secondVaccinations}/>
                 <SimpleField name="Boosterimpfung" icon_src="public/assets/icons/light/booster.png" value={vaccinations.boosterVaccinations}/>
-                <SimpleField name="Impfquote" icon_src="public/assets/icons/light/quote.png" value={vaccinations.quote*100} unit="%"/>
+                <SimpleField name="Erstimpfung-Quote" icon_src="public/assets/icons/light/quote.png" value={vaccinations.quote*100} unit="%"/>
+                <SimpleField name="Zweitimpfung-Quote" icon_src="public/assets/icons/light/quote.png" value={vaccinations.secondVaccinationQuote*100} unit="%"/>
             </div>
         </div>
 

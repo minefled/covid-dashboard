@@ -63,6 +63,7 @@ export interface VaccinationData {
     secondVaccinations:number;
     administered:number;
     quote:number;
+    secondVaccinationQuote:number;
 
     boosterVaccinations:number;
 

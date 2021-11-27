@@ -68,6 +68,7 @@ export class API {
             administered: (data.data?.administered || 0),
 
             quote: (data.data?.quote || 0),
+            secondVaccinationQuote: (data.data?.secondVaccination?.quote || 0),
 
             boosterVaccinations: (data.data?.boosterVaccination?.vaccinated || 0),
 
