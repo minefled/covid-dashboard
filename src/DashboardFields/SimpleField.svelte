@@ -63,6 +63,12 @@
                 img.item-icon {
                     height: 60px;
                 }
+
+                @media(max-width: 1000px) {
+                    img.item-icon {
+                        height: 50px;
+                    }
+                }
             }
 
             div.content-section {
@@ -73,6 +79,8 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+
+                margin-left: 1em;
 
                 div.title-section {
                     width: 100%;
@@ -85,10 +93,20 @@
 
                     b.item-title {
                         font-family: "Montserrat";
-                        font-size: 20px;
+                        font-size: 18px;
                         font-weight: 700;
+                    }
 
-                        margin-left: 1em;
+                    @media(max-width: 800px) {
+                        b.item-title {
+                            font-size: 16px;
+                        }
+                    }
+
+                    @media(max-width: 600px) {
+                        b.item-title {
+                            font-size: 14px;
+                        }
                     }
                 }
 
@@ -107,53 +125,29 @@
                         font-weight: 800;
                         color: #ffffff;
 
-                        margin-left: 0.5em;
-
                         transition: 0.3s;
                     }
 
                     b.delta {
-                        font-size: 16px;
+                        font-size: 18px;
                         font-family: "Outfit";
                         font-weight: 800;
                         color: #777;
 
-                        margin-left: 1.5em;
+                        margin-left: 1.5ex;
+                    }
+
+                    @media(max-width: 900px) {
+                        b.item-value {
+                            font-size: 24px;
+                        }
+
+                        b.delta {
+                            font-size: 14px;
+                        }
                     }
                 }
             }
-        }
-    }
-
-    @media(max-width: 1100px) {
-        img.item-icon {
-            height: 40px;
-        }
-
-        div.title-section b {
-            font-size: 18px;
-        }
-    }
-
-    @media(max-width: 800px) {
-        img.item-icon {
-            height: 30px;
-        }
-
-        div.item {
-            width: calc(100%);
-        }
-
-        b.item-title {
-            font-size: 10px;
-        }
-
-        b.item-value {
-            font-size: 16px;
-        }
-
-        b.delta {
-            font-size: 12px;
         }
     }
 </style>
