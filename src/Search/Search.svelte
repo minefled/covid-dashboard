@@ -15,7 +15,8 @@
 
     function handle_keypress(e) {
         _value = handleKeypress(e, _value, autocomplete_value);
-        autocomplete_value = findAutocompleteMatch(possible_values, _value).replace(_value, "");
+        let autocomplete = findAutocompleteMatch(possible_values, _value);
+        autocomplete_value = autocomplete.substr(_value.length, autocomplete.length);
 
         if(isValid(_value, possible_values)) {
             value = _value;
