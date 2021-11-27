@@ -18,13 +18,10 @@
         let autocomplete = findAutocompleteMatch(possible_values, _value);
         autocomplete_value = autocomplete.substr(_value.length, autocomplete.length);
 
-        if(isValid(_value, possible_values)) {
-            value = _value;
-            dispatch("submit", { "value": value });
-        }
+        if(isValid(_value, possible_values)) value = _value;
         else value = "";
 
-        console.log(isValid(_value, possible_values));
+        if(e.which == 13) dispatch("submit", { "value": value });
     }
 </script>
 

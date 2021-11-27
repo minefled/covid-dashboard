@@ -1,6 +1,4 @@
 export function handleKeypress(e, currentValue, autocompleteValue) {
-    console.log(e);
-
     if(e.keyCode != 123) { e.preventDefault(); }
 
     if(
@@ -22,7 +20,6 @@ export function handleKeypress(e, currentValue, autocompleteValue) {
 
     // Tab
     if(e.which == 9) {
-        e.target.blur();
         return currentValue + autocompleteValue;
     }
 
