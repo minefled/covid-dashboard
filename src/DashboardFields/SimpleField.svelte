@@ -93,13 +93,15 @@
 
                     b.item-title {
                         font-family: "Montserrat";
-                        font-size: 18px;
+                        font-size: 16px;
                         font-weight: 700;
+
+                        color: var(--dashboard-item-name-color);
                     }
 
-                    @media(max-width: 800px) {
+                    @media(max-width: 900px) {
                         b.item-title {
-                            font-size: 16px;
+                            font-size: 15px;
                         }
                     }
 

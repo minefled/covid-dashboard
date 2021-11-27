@@ -104,8 +104,10 @@
 
                 b.item-title {
                     font-family: "Montserrat";
-                    font-size: 18px;
+                    font-size: 16px;
                     font-weight: 700;
+
+                    color: var(--dashboard-item-name-color);
                 }
 
                 img.item-icon {
