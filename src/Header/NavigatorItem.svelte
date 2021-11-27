@@ -19,8 +19,8 @@
         align-items: center;
         justify-content: center;
 
-        padding-left: 1.5ex;
-        padding-right: 1.5ex;
+        margin-left: 1.5ex;
+        margin-right: 1.5ex;
 
         cursor: pointer;
 
@@ -54,6 +54,28 @@
 
             background: var(--header-navigator-item-active-background-color);
             background: var(--header-navigator-item-active-background);
+        }
+    }
+
+    @media(max-width: 850px) {
+        .navigator-item {
+            width: 100%;
+
+            b {
+                font-family: "Montserrat";
+                font-size: 24px;
+                font-weight: 700;
+
+                color: var(--header-navigator-item-name-color)
+            }
+
+            .item-name-underline {
+                display: none;
+            }
+        }
+
+        .navigator-item.active {
+            background-color: var(--header-navigator-phone-item-active-background);
         }
     }
 </style>

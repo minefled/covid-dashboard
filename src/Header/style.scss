@@ -69,4 +69,60 @@ div.navigator-block {
     width: auto;
 
     margin-left: 26px;
+
+    transition: 0.5s transform;
+}
+
+div.navigator-icon {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    height: 29px;
+    width: 40px;
+
+    position: fixed;
+    right: 56px;
+
+    cursor: pointer;
+
+    span.nav-icon-bar {
+        width: 80%;
+        height: 3px;
+
+        background-color: #ffffff;
+    }
+}
+
+@media(max-width: 850px) {
+    div.navigator-block {
+        position: fixed;
+        top: 60px;
+        left: 0px;
+
+        margin-left: 0;
+        padding-bottom: 60px;
+
+        width: 100vw;
+        height: calc(100vh - 120px);
+
+        background-color: var(--main-background);
+
+        z-index: 10;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+
+        transform: translateX(-100%);
+    }
+
+    div.navigator-block.visible {
+        transform: translateX(0);
+    }
+
+    div.navigator-icon {
+        display: flex;
+    }
 }
