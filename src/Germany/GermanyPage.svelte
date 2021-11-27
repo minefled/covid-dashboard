@@ -60,28 +60,28 @@
             <div class="item-container size-6">
                 <SimpleField 
                     name="7-Tage-Inzidenz"
-                    icon_src="public/assets/icons/light/7-day-incidence.svg"
+                    icon_src="public/assets/icons/{core.iconTheme}/7-day-incidence.svg"
                     value={data.weekIncidence} 
                     color={calculateIncidenceColor(data.weekIncidence)}
                 />
 
                 <SimpleField 
                     name="Fälle 7 Tage"
-                    icon_src="public/assets/icons/light/covid.png"
+                    icon_src="public/assets/icons/{core.iconTheme}/covid.png"
                     value={data.cases7Days} 
                     color={calculateWeekCasesColor(data.cases7Days)}
                 />
 
                 <SimpleField 
                     name="Hospitalisierungs-Inzidenz"
-                    icon_src="public/assets/icons/light/hospitalization.png"
+                    icon_src="public/assets/icons/{core.iconTheme}/hospitalization.png"
                     value={data.hospitalizationIncidence} 
                     color={calculateHospitalizationColor(data.hospitalizationIncidence)}
                 />
 
-                <SimpleField name="Fälle Gesamt" icon_src="public/assets/icons/light/covid.png" value={data.cases} delta={data.deltaCases}/>
-                <SimpleField name="Tode Gesamt" icon_src="public/assets/icons/light/death.png" value={data.deaths} delta={data.deltaDeaths}/>
-                <SimpleField name="Genesene Gesamt" icon_src="public/assets/icons/light/recovered.png" value={data.recovered} delta={data.deltaRecovered}/>
+                <SimpleField name="Fälle Gesamt" icon_src="public/assets/icons/{core.iconTheme}/covid.png" value={data.cases} delta={data.deltaCases}/>
+                <SimpleField name="Tode Gesamt" icon_src="public/assets/icons/{core.iconTheme}/death.png" value={data.deaths} delta={data.deltaDeaths}/>
+                <SimpleField name="Genesene Gesamt" icon_src="public/assets/icons/{core.iconTheme}/recovered.png" value={data.recovered} delta={data.deltaRecovered}/>
             </div>
         </div>
 
@@ -90,12 +90,12 @@
             <span class="title-underline"></span>
 
             <div class="item-container size-5">
-                <SimpleField name="Erstimpfung" icon_src="public/assets/icons/light/vaccination.png" value={vaccinations.vaccinated}/>
-                <SimpleField name="Zweitimpfung" icon_src="public/assets/icons/light/vaccination.png" value={vaccinations.secondVaccinations}/>
-                <SimpleField name="Boosterimpfung" icon_src="public/assets/icons/light/booster.png" value={vaccinations.boosterVaccinations}/>
-                <SimpleField name="Erstimpfung-Quote" icon_src="public/assets/icons/light/quote.png" value={vaccinations.quote*100} unit="%"/>
-                <SimpleField name="Zweitimpfung-Quote" icon_src="public/assets/icons/light/quote.png" value={vaccinations.secondVaccinationQuote*100} unit="%"/>
-                <SimpleField name="Boosterimpfung-Quote" icon_src="public/assets/icons/light/quote.png" value={vaccinations.boosterVaccinationQuote*100} unit="%"/>
+                <SimpleField name="Erstimpfung" icon_src="public/assets/icons/{core.iconTheme}/vaccination.png" value={vaccinations.vaccinated}/>
+                <SimpleField name="Zweitimpfung" icon_src="public/assets/icons/{core.iconTheme}/vaccination.png" value={vaccinations.secondVaccinations}/>
+                <SimpleField name="Boosterimpfung" icon_src="public/assets/icons/{core.iconTheme}/booster.png" value={vaccinations.boosterVaccinations}/>
+                <SimpleField name="Erstimpfung-Quote" icon_src="public/assets/icons/{core.iconTheme}/quote.png" value={vaccinations.quote*100} unit="%"/>
+                <SimpleField name="Zweitimpfung-Quote" icon_src="public/assets/icons/{core.iconTheme}/quote.png" value={vaccinations.secondVaccinationQuote*100} unit="%"/>
+                <SimpleField name="Boosterimpfung-Quote" icon_src="public/assets/icons/{core.iconTheme}/quote.png" value={vaccinations.boosterVaccinationQuote*100} unit="%"/>
                 <DosesDistribution 
                     doses_biontech={vaccinations.dosesBiontech}
                     doses_moderna={vaccinations.dosesModerna}
@@ -110,9 +110,9 @@
             <span class="title-underline"></span>
 
             <div class="item-container size-3">
-                <SimpleField name="Durchgeführte Tests" icon_src="public/assets/icons/light/tests.png" value={tests.performedTest}/>
-                <SimpleField name="Positive Tests" icon_src="public/assets/icons/light/tests.png" value={tests.positiveTests}/>
-                <SimpleField name="Postitivitätsrate" icon_src="public/assets/icons/light/quote.png" value={(tests.positiveTests / tests.performedTest)*100} unit="%" color={calculatePositivityRateColor((tests.positiveTests / tests.performedTest)*100)}/>
+                <SimpleField name="Durchgeführte Tests" icon_src="public/assets/icons/{core.iconTheme}/tests.png" value={tests.performedTest}/>
+                <SimpleField name="Positive Tests" icon_src="public/assets/icons/{core.iconTheme}/tests.png" value={tests.positiveTests}/>
+                <SimpleField name="Postitivitätsrate" icon_src="public/assets/icons/{core.iconTheme}/quote.png" value={(tests.positiveTests / tests.performedTest)*100} unit="%" color={calculatePositivityRateColor((tests.positiveTests / tests.performedTest)*100)}/>
             </div>
         </div>
     </div>
