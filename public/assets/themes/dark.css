@@ -33,4 +33,10 @@
     --dashboard-vaccination-distribution-chart-segment-moderna: #9845c8;
     --dashboard-vaccination-distribution-chart-segment-astrazeneca: #4a7eb9;
     --dashboard-vaccination-distribution-chart-segment-janssen: #5dbd51;
+
+    --search-background: #222427;
+    --search-focus-background: #303338;
+    --search-text-color: #ffffff;
+    --search-autocomplete-color: #888;
+    --search-placeholder-color: #777;
 }

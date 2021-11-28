@@ -1,0 +1,30 @@
+div.states-page {
+    position: fixed;
+    top: 60px;
+    left: 0;
+
+    width: 100%;
+    height: calc(100vh - 60px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: auto;
+}
+
+div.search-bar {
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    width: 20%;
+
+    margin-bottom: 12px;
+}

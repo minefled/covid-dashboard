@@ -1,7 +1,10 @@
 <script lang="ts">
 	import Header from "./Header/Header.svelte";
+
 	import Homepage from "./home/Homepage.svelte";
 	import GermanyPage from "./Germany/GermanyPage.svelte";	
+	import StatesPage from "./States/StatesPage.svelte";
+
 	import { Core, get_page } from "../public/assets/core";
 	import { onMount } from "svelte";
 
@@ -28,8 +31,13 @@
 	{#if page == "home"}
 		<Homepage />
 	{/if}
+
 	{#if page == "germany"}
 		<GermanyPage core={core}/>
+	{/if}
+
+	{#if page == "states"}
+		<StatesPage core={core}/>
 	{/if}
 </main>
 

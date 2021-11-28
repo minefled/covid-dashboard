@@ -51,6 +51,7 @@ export interface StateData {
     deltaDeaths:number;
     deltaRecovered:number;
 
+    cases7Days:number;
     weekIncidence:number;
     hospitalizationIncidence:number;
     hospitalizationCases:number;
@@ -77,6 +78,25 @@ export interface VaccinationData {
     boosterDosesModerna:number;
     boosterDosesAstraZeneca:number;
     boosterDosesJanssen:number;
+}
+
+export interface StatesVaccinations {
+    BB:VaccinationData;               // Brandenburg
+    BE:VaccinationData;               // Berlin
+    BW:VaccinationData;               // Baden-Württemberg
+    BY:VaccinationData;               // Bayern
+    HB:VaccinationData;               // Bremen
+    HE:VaccinationData;               // Hessen
+    HH:VaccinationData;               // Hamburg
+    MV:VaccinationData;               // Mecklenburg-Vorpommern
+    NI:VaccinationData;               // Niedersachsen
+    NW:VaccinationData;               // Nordrhein-Westfalen
+    RP:VaccinationData;               // Rheinland-Pfalz
+    SH:VaccinationData;               // Schleswig-Holstein
+    SL:VaccinationData;               // Saarland
+    SN:VaccinationData;               // Sachsen
+    ST:VaccinationData;               // Sachsen-Anhalt
+    TH:VaccinationData;               // Thüringen
 }
 
 export interface TestsData {
