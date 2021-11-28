@@ -7,6 +7,7 @@
     export let name = "";
     export let color:string = "";
     export let unit:string = "";
+    export let hideValue:boolean = false;
 </script>
 
 <div class="item-box">
@@ -17,8 +18,8 @@
                 <b class="item-title">{name}</b>
             </div>
             <div class="value-section">
-                <b class="item-value" style={(color == "") ? "" : `color: ${color}`}>{formatNumber(value)}{unit}</b>
-                {#if delta != null}
+                <b class="item-value" style={(color == "" || hideValue) ? "" : `color: ${color}`}>{hideValue ? "--" : formatNumber(value)}{unit}</b>
+                {#if delta != null && !hideValue}
                     <b class="delta">+{formatNumber(delta)}</b>
                 {/if}
             </div>
