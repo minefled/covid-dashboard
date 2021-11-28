@@ -3,9 +3,7 @@
     import SimpleField from "../DashboardFields/SimpleField.svelte";
     import DosesDistribution from "../DashboardFields/DosesDistribution.svelte";
 
-    import { calculateHospitalizationColor, calculateIncidenceColor, calculatePositivityRateColor, calculateWeekCasesColor } from "./index.js";
-
-    import type { Core } from "../../public/assets/core";
+    import { Core, dashboard } from "../../public/assets/core";
     import type { GermanyData, TestsData, VaccinationData } from "../../public/assets/core/api/data";
 
     export let core:Core;
@@ -62,21 +60,21 @@
                     name="7-Tage-Inzidenz"
                     icon_src="public/assets/icons/{core.iconTheme}/7-day-incidence.svg"
                     value={data.weekIncidence} 
-                    color={calculateIncidenceColor(data.weekIncidence)}
+                    color={dashboard.calculateIncidenceColor(data.weekIncidence)}
                 />
 
                 <SimpleField 
                     name="Fälle 7 Tage"
                     icon_src="public/assets/icons/{core.iconTheme}/covid.png"
                     value={data.cases7Days} 
-                    color={calculateWeekCasesColor(data.cases7Days)}
+                    color={dashboard.calculateWeekCasesColor(data.cases7Days)}
                 />
 
                 <SimpleField 
                     name="Hospitalisierungs-Inzidenz"
                     icon_src="public/assets/icons/{core.iconTheme}/hospitalization.png"
                     value={data.hospitalizationIncidence} 
-                    color={calculateHospitalizationColor(data.hospitalizationIncidence)}
+                    color={dashboard.calculateHospitalizationColor(data.hospitalizationIncidence)}
                 />
 
                 <SimpleField name="Fälle Gesamt" icon_src="public/assets/icons/{core.iconTheme}/covid.png" value={data.cases} delta={data.deltaCases}/>
@@ -112,7 +110,7 @@
             <div class="item-container size-3">
                 <SimpleField name="Durchgeführte Tests" icon_src="public/assets/icons/{core.iconTheme}/tests.png" value={tests.performedTest}/>
                 <SimpleField name="Positive Tests" icon_src="public/assets/icons/{core.iconTheme}/tests.png" value={tests.positiveTests}/>
-                <SimpleField name="Postitivitätsrate" icon_src="public/assets/icons/{core.iconTheme}/quote.png" value={(tests.positiveTests / tests.performedTest)*100} unit="%" color={calculatePositivityRateColor((tests.positiveTests / tests.performedTest)*100)}/>
+                <SimpleField name="Postitivitätsrate" icon_src="public/assets/icons/{core.iconTheme}/quote.png" value={(tests.positiveTests / tests.performedTest)*100} unit="%" color={dashboard.calculatePositivityRateColor((tests.positiveTests / tests.performedTest)*100)}/>
             </div>
         </div>
     </div>
@@ -120,4 +118,5 @@
 
 <style lang="scss">
     @import "./style.scss";
+    @import "../../public/assets/core/style/dashboard-style-core.scss";
 </style>
