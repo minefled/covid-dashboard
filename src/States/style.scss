@@ -14,7 +14,7 @@ div.states-page {
 }
 
 div.search-bar {
-    width: 100%;
+    width: 20%;
     
     display: flex;
     flex-direction: row;
@@ -24,7 +24,17 @@ div.search-bar {
     padding-top: 8px;
     padding-bottom: 8px;
 
-    width: 20%;
-
     margin-bottom: 12px;
+}
+
+@media(max-width: 1400px) {
+    div.search-bar {
+        width: 50%;
+    }
+}
+
+@media(max-width: 900px) {
+    div.search-bar {
+        width: 80%;
+    }
 }
