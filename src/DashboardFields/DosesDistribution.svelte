@@ -87,6 +87,7 @@
 
             background-color: var(--dashboard-item-default-background-color);
             color: var(--primary-text-color);
+            box-shadow: var(--dashboard-item-shadow);
 
             display: flex;
             flex-direction: column;

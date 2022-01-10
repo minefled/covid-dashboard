@@ -42,6 +42,7 @@
             border-radius: 10px;
 
             background-color: var(--dashboard-item-default-background-color);
+            box-shadow: var(--dashboard-item-shadow);
 
             color: var(--primary-text-color);
 
